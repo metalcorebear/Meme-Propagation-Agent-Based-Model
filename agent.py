@@ -33,7 +33,10 @@ class tweeter(Agent):
                 homophily = sum(edge_valences)/float(len(edge_valences))
             else:
                 homophily = 0.0
-            self.meme_state = model_functions.set_meme(homophily)
+            if homophily > 0:
+                self.meme_state = model_functions.set_meme(homophily)
+            else:
+                self.meme_state = self.meme_state
             if self.meme_state == True:
                 self.model.meme += 1
         
