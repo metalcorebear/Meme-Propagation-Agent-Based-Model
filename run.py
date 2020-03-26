@@ -12,9 +12,10 @@ import model_params
 
 meme_model = propagation_model()
 
-nodes = model_params.parameters['network_size']
+# Number of steps to run model.
+steps = model_params.parameters['steps']
 
-for i in range(nodes):
+for i in range(steps):
     meme_model.step()
     
 output_data = meme_model.datacollector.get_model_vars_dataframe()
