@@ -3,7 +3,7 @@
 (C) 2020 Mark M. Bailey
 
 ## About
-This repository contains an ABM for meme propagation within social networks using Mesa.  Model parameters can be set in the 'model_params.py" file.  Produces a dataframe output of meme density over time (steps).
+This repository contains an ABM for meme propagation within social networks using Mesa.  Model parameters can be set in the 'model_params.py" file.  Produces a dataframe output of meme density over quasi-time (steps).
 
 This is a work in progress and is for research purposes only.
 
