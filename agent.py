@@ -21,9 +21,10 @@ class tweeter(Agent):
         edge_valences = []
         homophily = 0.0
         if self.meme_state == False:
-            for neighbor in self.model.grid.neighbor_iter(self.pos):
-                if neighbor.meme_state == True:
-                    edge_valence = model_functions.find_edge_valence(self.valence, neighbor.valence)
+            for neighbor in self.model.grid.get_neighbors(self.pos):
+                neighbor_obj = self.model.schedule.agents[neighbor]
+                if neighbor_obj.meme_state == True:
+                    edge_valence = model_functions.find_edge_valence(self.valence, neighbor_obj.valence)
                     edge_valences.append(edge_valence)
                 else:
                     edge_valences.append(0.0)

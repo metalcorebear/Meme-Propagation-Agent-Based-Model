@@ -15,8 +15,8 @@ import model_params
 
 class propagation_model(Model):
     
-    def __init__(self, model):
-        super().__init__(model)
+    def __init__(self):
+        super().__init__(Model)
         
         density = model_params.parameters['density']
         nodes = model_params.parameters['network_size']
@@ -29,8 +29,8 @@ class propagation_model(Model):
         
         self.running = True
     
-        for node in nodes:
-            new_agent = agent.tweeter(self.next_id(), node, model, neg_bias, meme_density)
+        for node in range(nodes):
+            new_agent = agent.tweeter(self.next_id(), node, self, neg_bias, meme_density)
             self.grid.place_agent(new_agent, node)
             self.schedule.add(new_agent)
     
