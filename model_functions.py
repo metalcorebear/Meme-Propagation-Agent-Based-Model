@@ -76,4 +76,10 @@ def build_network(density, n):
     edge_list = clean_edge_list(edge_list)
     G.add_edges_from(edge_list)
     return G
-    
+
+#Compute meme density at any point in time.
+def compute_meme_density(model):
+    N = float(model.num_agents)
+    meme_state = float(model.meme)
+    meme_density = meme_state/N
+    return meme_density
