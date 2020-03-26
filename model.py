@@ -35,7 +35,7 @@ class propagation_model(Model):
             self.schedule.add(new_agent)
     
         self.meme = 0
-        self.datacollector = DataCollector({"meme_states": lambda a: a.meme})
+        self.datacollector = DataCollector(model_reporters={"meme_density": model_functions.compute_meme_density})
         self.datacollector.collect(self)
     
     def step(self):
