@@ -5,10 +5,10 @@
 ## About
 This repository contains an ABM for meme propagation within social networks using Mesa.  Model parameters can be set in the 'model_params.py" file.  Produces a dataframe output of meme density over quasi-time (steps).
 
-This is a work in progress and is for research purposes only.
+This is a work in progress and is intended for research purposes only.
 
 ## Model Description
-This is based on a homophily model of behavior adoption.  The primary assumption is that, the greater the level of percieved affiliation (homophily) with neighbors who share the meme, the greater the probability that the interrogated agent will adopt the meme. Connection valences [-1,1] are used to approximate homophily between individual agents, where the sign indicates the valence of the relationship (negative relationships exist when individuals don't get along).  Individual agents are pseudorandomly assigned a valence value [-1,1] that determines their position on an idealized political spectrum.  Connection valences are calculated from the individual agent valences as follows: <br /><br />
+This is based on a homophily model of behavior adoption.  The primary assumption is that, the greater the level of percieved affiliation (homophily) with neighbors who share the meme, the greater the probability that the interrogated agent will adopt the meme. Connection valences [-1,1] are used to approximate homophily between individual agents, where the sign indicates the valence of the relationship (negative relationships exist when individuals don't get along), and the magnitude indicates the relative strength of that relationship.  Individual agents are pseudorandomly assigned a valence value [-1,1] that determines their position on an idealized political spectrum.  Connection valences are calculated from the differences between individual agent valences as follows: <br /><br />
 Agents with valences of the same sign (aligned political views):<br />
 `connection_valence = 1.0 - abs(agent_valence_1 - agent_valence_2)`<br /><br />
 Agents with valences of opposite signs (unaligned political views):<br />
