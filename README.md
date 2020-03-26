@@ -8,8 +8,8 @@ This repository contains an ABM for meme propagation within social networks usin
 This is a work in progress and is for research purposes only.
 
 ## Model Parameters
-density = network edge density.
-network_size = number of nodes in network.
-neg_bias = probability of node having a negative valence on an idealized, 1D political spectrum.
-meme_density = initial seed density of nodes that have shared the meme.
-steps = number of steps to run the model.
+* density = network edge density.
+* network_size = number of nodes in network.
+* neg_bias = probability of node having a negative valence on an idealized, 1D political spectrum.
+* meme_density = initial seed density of nodes that have shared the meme.
+* steps = number of steps to run the model.
