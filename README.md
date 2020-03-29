@@ -26,7 +26,7 @@ If the homophily value is less than zero, the interrogated agent does not adopt 
 * steps = number of iterations in the model.
 
 ## Instructions for Use
-Update parameters in the 'model_params.py' file.<br /><br />
+* Update parameters in the 'model_params.py' file.<br />
 * Execute the 'run.py' script.<br />
 `python run.py -o <output_path>`<br /><br />
 * Once all the simulations are complete, execute the 'analyze.py' script.<br /><br />
