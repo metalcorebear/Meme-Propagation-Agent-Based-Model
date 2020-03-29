@@ -50,11 +50,13 @@ def import_files(out_files):
     file_dicts = get_params(out_files)
     dfs = []
     column_names = []
+    i = 0
     for path_ in out_files:
         df = pd.read_csv(path_)
         for filename in file_dicts:
             if filename['basename'] == os.path.basename(path_):
-                new_name = str(filename['density']) + '_' + str(filename['n']) + '_' + str(filename['neg_bias'])
+                i += 1
+                new_name = str(filename['density']) + '_' + str(filename['n']) + '_' + str(filename['neg_bias']) + '_' + str(i)
                 column_names.append(new_name)
                 df2 = df.rename(columns={'meme_density':new_name})
         dfs.append(df2)
