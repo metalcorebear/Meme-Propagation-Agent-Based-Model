@@ -29,5 +29,5 @@ If the homophily value is less than zero, the interrogated agent does not adopt 
 * Update parameters in the 'model_params.py' file.<br />
 * Execute the 'run.py' script.<br />
 `python run.py -o <output_path>`<br /><br />
-* Once all the simulations are complete, execute the 'analyze.py' script.<br /><br />
+* Once all the simulations are complete, execute the 'analyze.py' script.<br />
 `python analyze.py -o <output_path> -a <Boolean (True if calculate average and fit)>`
