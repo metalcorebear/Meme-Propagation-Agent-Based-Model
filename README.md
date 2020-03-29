@@ -21,6 +21,13 @@ If the homophily value is less than zero, the interrogated agent does not adopt 
 ## Model Parameters
 * density = network edge density.
 * network_size = number of nodes in network.
-* neg_bias = probability of node having a negative valence on an idealized, 1D political spectrum.
+* neg_bias = probability of node having a negative valence on an idealized, 1D political spectrum (note that the meme is assumed to have positive valence).
 * meme_density = initial seed density of nodes that have shared the meme.
 * steps = number of iterations in the model.
+
+## Instructions for Use
+Update parameters in the 'model_params.py' file.<br /><br />
+* Execute the 'run.py' script.<br />
+`python run.py -o <output_path>`<br /><br />
+* Once all the simulations are complete, execute the 'analyze.py' script.<br /><br />
+`python analyze.py -o <output_path> -a <Boolean (True if calculate average and fit)>`

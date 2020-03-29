@@ -22,6 +22,8 @@ class propagation_model(Model):
         nodes = model_params.parameters['network_size']
         neg_bias = model_params.parameters['neg_bias']
         meme_density = model_params.parameters['meme_density']
+        self.num_agents = nodes
+        self.meme = 0
         
         G = model_functions.build_network(density, nodes)
         self.grid = NetworkGrid(G)
@@ -34,12 +36,11 @@ class propagation_model(Model):
             self.grid.place_agent(new_agent, node)
             self.schedule.add(new_agent)
     
-        self.meme = 0
+        #self.meme = 0
         self.datacollector = DataCollector(model_reporters={"meme_density": model_functions.compute_meme_density})
         self.datacollector.collect(self)
     
     def step(self):
-        self.meme = 0
         self.schedule.step()
         
         self.datacollector.collect(self)

@@ -15,7 +15,7 @@ class tweeter(Agent):
         super().__init__(unique_id, model)
         self.pos = pos
         self.valence = model_functions.set_magnitude(neg_bias)
-        self.meme_state = model_functions.set_meme(meme_density)
+        self.meme_state = model_functions.set_meme(meme_density, self.valence)
         
     def step(self):
         edge_valences = []
@@ -34,7 +34,7 @@ class tweeter(Agent):
             else:
                 homophily = 0.0
             if homophily > 0:
-                self.meme_state = model_functions.set_meme(homophily)
+                self.meme_state = model_functions.set_meme(homophily, self.valence)
             else:
                 self.meme_state = self.meme_state
             if self.meme_state == True:

@@ -11,4 +11,4 @@ Created on Wed Mar 25 11:54:25 2020
 # meme_density = initial seed density of nodes that have shared the meme.
 # steps = number of steps to run the model.
 
-parameters = {'density':0.85, 'network_size':100, 'neg_bias':0.5, 'meme_density':0.01, 'steps':1000}
+parameters = {'density':0.85, 'network_size':500, 'neg_bias':0.5, 'meme_density':0.02, 'steps':100}

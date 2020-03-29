@@ -32,9 +32,12 @@ def set_magnitude(neg_bias):
 
 
 #Set agent meme state
-def set_meme(meme_density):
-    if coin_flip(meme_density):
-        meme = True
+def set_meme(meme_density, valence):
+    if valence >= 0:
+        if coin_flip(meme_density):
+            meme = True
+        else:
+            meme = False
     else:
         meme = False
     return meme
