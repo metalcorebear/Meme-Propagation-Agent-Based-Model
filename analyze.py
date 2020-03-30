@@ -68,7 +68,7 @@ def concat_dfs(dfs, column_names, average_bool, output_path):
     df_out = df_out[column_names]
     if average_bool:
         df_out['average'] = df_out.mean(axis=1)
-        _, df_out = df_fit(df_out, output_path)
+        _, df_out, _ = df_fit(df_out, output_path)
     return df_out
 
 def sigmoid(x,k,x0,c):
@@ -81,13 +81,14 @@ def df_fit(df_out, output_path):
     y = list(df_out['average'])
     y = np.array(y)
     try:
-        popt, _ = scipy.optimize.curve_fit(sigmoid, x, y)
+        popt, pcov = scipy.optimize.curve_fit(sigmoid, x, y)
+        perr = np.sqrt(np.diag(pcov))
     except:
         popt = np.array([0.0, 0.0, 0.0])
     df_out['fit'] = sigmoid(x, *popt)
-    param_df = pd.DataFrame({'k':popt[0], 'x0':popt[1], 'c':popt[2]}, index=[0])
+    param_df = pd.DataFrame({'k':popt[0], 'k_err':perr[0], 'x0':popt[1], 'x0_err':perr[1], 'c':popt[2], 'c_err':perr[2]}, index=[0])
     param_df.to_csv(os.path.join(output_path, 'param_file.csv'))
-    return popt, df_out
+    return popt, df_out, perr
 
 # Plot output
 def plot_output(df_out, output_path):
@@ -109,6 +110,7 @@ def plot_output(df_out, output_path):
     ax.legend()
     plt.savefig(os.path.join(output_path, plot_name), dpi=300)
     plt.close()
+    
 
 if __name__ == '__main__':
     print('Generating plot and output CSV file...')
